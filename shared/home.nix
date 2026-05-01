@@ -16,18 +16,14 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-    };
   };
 
   home.pointerCursor = {
-    name = "Bibata-Modern-Classic";
-    package = pkgs.bibata-cursors;
-    size = 24;
     gtk.enable = true;
     x11.enable = true;
+    name = "Borealis-cursors";
+    package = pkgs.borealis-cursors;
+    size = 24;
   };
 
   programs.fish = {
@@ -59,12 +55,7 @@
         user = "git";
         identityFile = "~/.ssh/id_ed25519";
       };
-      github = {
-        host = "github.com";
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519";
-      };
+      github = { host = "github.com"; hostname = "github.com"; user = "git"; identityFile = "~/.ssh/id_ed25519"; };
       "*" = {
         forwardAgent = false;
         addKeysToAgent = "no";

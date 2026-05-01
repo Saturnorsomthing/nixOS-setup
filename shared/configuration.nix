@@ -91,6 +91,7 @@
     xwayland-satellite
     proton-pass
     protonvpn-gui
+    protonmail-desktop
     virt-viewer
     shared-mime-info
     ffmpegthumbnailer
