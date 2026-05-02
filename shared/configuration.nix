@@ -65,6 +65,7 @@
     yazi
     zig
     cmake
+    lynx
     ninja
     python3
     ddcutil
