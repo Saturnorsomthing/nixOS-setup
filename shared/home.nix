@@ -38,10 +38,6 @@
     settings = {
       shell = "fish";
     };
-    extraConfig = ''
-      background_opacity 0.85
-      background_blur 20
-    '';
   };
 
   programs.ssh = {
@@ -102,10 +98,5 @@
     wlr-randr
     nwg-displays
   ];
-
-  xdg.configFile."niri/config.kdl".text = lib.mkAfter ''
-    spawn-at-startup "noctalia"
-  '';
-
   home.stateVersion = "25.05";
 }
