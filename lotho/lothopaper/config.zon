@@ -1,0 +1,17 @@
+.{
+    .fps = 0,
+    .maxOutputs = 8,
+    .resources = .{},
+    .shadertoy = true,
+    .timeFactor = 1,
+    .scale = 1,
+    .scaleMode = .LINEAR,
+    .permissions = .{ .mouse = false },
+    .performance = .{ .onHover = .LIMIT, .limitedFps = 30 },
+    .backgroundColor = .{
+        0,
+        0,
+        0,
+        1,
+    },
+}

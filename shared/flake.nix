@@ -10,7 +10,6 @@
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
@@ -22,9 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, nix-cachyos-kernel, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, nix-cachyos-kernel, noctalia, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
