@@ -357,7 +357,7 @@
     "desktopWidgets": {
         "enabled": true,
         "gridSnap": true,
-        "gridSnapScale": false,
+        "gridSnapScale": true,
         "monitorWidgets": [
             {
                 "name": "HDMI-A-2",
@@ -408,6 +408,14 @@
                         "statType": "CPU",
                         "x": 1640,
                         "y": 460
+                    },
+                    {
+                        "id": "Weather",
+                        "roundedCorners": true,
+                        "scale": 0.786667178281758,
+                        "showBackground": true,
+                        "x": 1380,
+                        "y": 580
                     }
                 ]
             }
@@ -432,7 +440,7 @@
         "indicatorOpacity": 0.6,
         "indicatorThickness": 3,
         "launcherIcon": "",
-        "launcherIconColor": "error",
+        "launcherIconColor": "primary",
         "launcherPosition": "start",
         "launcherUseDistroLogo": true,
         "monitors": [
