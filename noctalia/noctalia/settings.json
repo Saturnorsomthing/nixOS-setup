@@ -285,7 +285,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "content",
+        "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -357,11 +357,48 @@
     "desktopWidgets": {
         "enabled": true,
         "gridSnap": true,
-        "gridSnapScale": true,
+        "gridSnapScale": false,
         "monitorWidgets": [
             {
                 "name": "HDMI-A-2",
                 "widgets": [
+                    {
+                        "defaultSettings": {
+                            "roundedCorners": true,
+                            "showBackground": true
+                        },
+                        "id": "plugin:calendar-widget",
+                        "scale": 1,
+                        "showBackground": true,
+                        "x": 1620,
+                        "y": 600
+                    },
+                    {
+                        "clockColor": "none",
+                        "clockStyle": "digital",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 0.9878650164374496,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 1440,
+                        "y": 740
+                    },
+                    {
+                        "hideMode": "visible",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "scale": 1.3283995399916897,
+                        "showAlbumArt": true,
+                        "showBackground": true,
+                        "showButtons": true,
+                        "showVisualizer": true,
+                        "visualizerType": "linear",
+                        "x": 1360,
+                        "y": 920
+                    }
                 ]
             }
         ],

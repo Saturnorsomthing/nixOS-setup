@@ -59,6 +59,7 @@
     prismlauncher
     vscodium
     fastfetch
+    onefetch
     rofi
     git
     yazi

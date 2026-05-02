@@ -351,8 +351,6 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "/home/saturn/Downloads/nixosbg.png"
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -655,3 +653,6 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+include "./noctalia.kdl"
+
