@@ -369,7 +369,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Backspace hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Backspace hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
     Super+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }
     Super+B hotkey-overlay-title="Run an Application: zen" { spawn "zen-beta"; }
     Super+L hotkey-overlay-title="Run an Application: office" { spawn "libreoffice"; }
@@ -378,7 +378,8 @@ binds {
     Super+S hotkey-overlay-title="Run an Application: steam" { spawn "steam"; }
     Super+R hotkey-overlay-title="Run an Application: obs" { spawn "obs"; }
     Super+C hotkey-overlay-title="Run an Application: vscodium" { spawn "codium"; }
-    Super+P hotkey-overlay-title="Run an Applcation: proton-vpn" { spawn "protonvpn-app"; }
+    Super+P hotkey-overlay-title="Run an Application: proton-vpn" { spawn "protonvpn-app"; }
+    Super+M hotkey-overlay-title="Run an Application: proton-mail" { spawn "proton-mail"; }
     Super+K hotkey-overlay-title="Run an TUI: kew" { spawn "kitty" "kew"; }    
 
 
