@@ -5,6 +5,7 @@
 
   xdg.configFile."gtk-4.0/gtk.css".force = true;
   xdg.configFile."gtk-4.0/settings.ini".force = true;
+
   gtk = {
     enable = true;
     theme = {
@@ -16,6 +17,7 @@
       package = pkgs.papirus-icon-theme;
     };
   };
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -49,8 +51,12 @@
         user = "git";
         identityFile = "~/.ssh/id_ed25519";
       };
-      github = { host = "github.com"; hostname = "github.com";
-      user = "git"; identityFile = "~/.ssh/id_ed25519"; };
+      github = { 
+        host = "github.com"; 
+        hostname = "github.com";
+        user = "git"; 
+        identityFile = "~/.ssh/id_ed25519"; 
+      };
       "*" = {
         forwardAgent = false;
         addKeysToAgent = "no";
@@ -73,6 +79,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
   };
+
   systemd.user.services.rot8 = {
     Unit.Description = "Screen rotation daemon";
     Service = {
@@ -98,5 +105,6 @@
     wlr-randr
     nwg-displays
   ];
+
   home.stateVersion = "25.05";
 }

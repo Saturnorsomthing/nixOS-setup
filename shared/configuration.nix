@@ -7,6 +7,23 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+
+  # Corrected nix settings to apply substituters properly
+  nix.settings = {
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    ];
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ "root" "@wheel" ];
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
@@ -42,18 +59,14 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  environment.systemPackages = with pkgs;
-  [
+  environment.systemPackages = with pkgs; [
     nautilus
     kew
     neovim
     discord
     yt-dlp
     ffmpeg
-    wineWowPackages.full
-    swww
+    wineWow64Packages.full     #wineWowPackages.full
     localsend
     libreoffice
     prismlauncher
@@ -92,7 +105,7 @@
     xournalpp
     xwayland-satellite
     proton-pass
-    protonvpn-gui
+    proton-vpn #protonvpn-gui
     protonmail-desktop
     virt-viewer
     shared-mime-info

@@ -9,7 +9,7 @@
         "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
-        "enableClipboardHistory": false,
+        "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
@@ -63,7 +63,7 @@
         ],
         "mouseWheelAction": "none",
         "mouseWheelWrap": true,
-        "outerCorners": true,
+        "outerCorners": false,
         "position": "left",
         "reverseScroll": false,
         "rightClickAction": "controlCenter",
@@ -215,6 +215,34 @@
                 },
                 {
                     "defaultSettings": {
+                        "completedCount": 0,
+                        "count": 0,
+                        "current_page_id": 0,
+                        "exportEmptySections": false,
+                        "exportFormat": "markdown",
+                        "exportPath": "~/Documents",
+                        "isExpanded": false,
+                        "pages": [
+                            {
+                                "id": 0,
+                                "name": "General"
+                            }
+                        ],
+                        "priorityColors": {
+                            "high": "#f44336",
+                            "low": "#9e9e9e",
+                            "medium": "#2196f3"
+                        },
+                        "showBackground": true,
+                        "showCompleted": true,
+                        "todos": [
+                        ],
+                        "useCustomColors": false
+                    },
+                    "id": "plugin:todo"
+                },
+                {
+                    "defaultSettings": {
                         "autoMount": false,
                         "fileBrowser": "yazi",
                         "hideWhenEmpty": false,
@@ -291,7 +319,7 @@
         "monitorForColors": "",
         "predefinedScheme": "GitHub Dark",
         "schedulingMode": "off",
-        "syncGsettings": false,
+        "syncGsettings": true,
         "useWallpaperColors": true
     },
     "controlCenter": {
@@ -579,7 +607,7 @@
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "6000"
+        "nightTemp": "3513"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": true,
