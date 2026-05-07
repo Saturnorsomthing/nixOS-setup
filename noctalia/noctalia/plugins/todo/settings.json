@@ -1,5 +1,15 @@
 {
-  "todos": [],
+  "todos": [
+    {
+      "id": 1778104614663,
+      "text": "remember the \"happy bday ayden\" for in a month",
+      "completed": false,
+      "createdAt": "2026-05-06T21:56:54.663Z",
+      "pageId": 0,
+      "priority": "low",
+      "details": ""
+    }
+  ],
   "pages": [
     {
       "id": 0,
@@ -7,7 +17,7 @@
     }
   ],
   "current_page_id": 0,
-  "count": 0,
+  "count": 1,
   "completedCount": 0,
   "showCompleted": true,
   "showBackground": true,

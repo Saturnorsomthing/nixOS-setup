@@ -1,12 +1,9 @@
-// GLSL ES 1.0
-precision highp float;
+#version 330 core
 
-// Input vertices in NDC
-attribute vec2 a_Position;
-attribute vec2 a_TexCoord;
+in vec2 a_Position;
+in vec2 a_TexCoord;
 
-// Output to fragment shader
-varying vec2 v_TexCoord;
+out vec2 v_TexCoord;
 
 void main() {
     // Pass texture coordinates directly
