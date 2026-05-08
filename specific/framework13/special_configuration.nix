@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "nixos-fw13";
+  networking.hostName = "nixos";
 
   # AMD Specific Boot
   boot.kernelParams = [ "amd_pstate=active" ];
@@ -11,11 +11,12 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      amdvlk
       libGL
     ];
   };
 
+
+  services.fwupd.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   
   hardware.bluetooth.enable = true;
