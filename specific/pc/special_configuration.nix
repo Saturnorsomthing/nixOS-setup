@@ -3,22 +3,29 @@
 {
   networking.hostName = "nixos";
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
+  
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  services.hardware.openrgb.enable = true;
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
 
+  services.hardware.openrgb.enable = true;
+  
   systemd.services.rgb-logic = {
     description = "Sync RGB state (Final Schedule)";
     script = ''
       H=$(${pkgs.coreutils}/bin/date +"%H")
       
-      if [ "$H" -ge 06 ] && [ "$H" -lt 23 ]; then
+      if [ "$H" -ge 06 ] && [ "$H" -lt 23 ];
+      then
         ${pkgs.openrgb}/bin/openrgb --mode static --color BDC3FF
       else
         ${pkgs.openrgb}/bin/openrgb --mode off

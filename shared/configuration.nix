@@ -8,7 +8,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Corrected nix settings to apply substituters properly
   nix.settings = {
     substituters = [
       "https://cache.nixos.org"
@@ -26,7 +25,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
   
   networking.networkmanager.enable = true;
@@ -34,6 +32,11 @@
   time.timeZone = "Europe/Vienna";
   services.timesyncd.enable = true;
   time.hardwareClockInLocalTime = false;
+
+  # Bluetooth Setup
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   services.flatpak.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
@@ -63,10 +66,10 @@
     nautilus
     kew
     neovim
-    discord
+    vesktop
     yt-dlp
     ffmpeg
-    wineWow64Packages.full     #wineWowPackages.full
+    wineWow64Packages.full
     localsend
     libreoffice
     prismlauncher
@@ -105,7 +108,7 @@
     xournalpp
     xwayland-satellite
     proton-pass
-    proton-vpn #protonvpn-gui
+    proton-vpn
     protonmail-desktop
     virt-viewer
     shared-mime-info

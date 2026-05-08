@@ -276,6 +276,7 @@ layout {
 // See the binds section below for more spawn examples.
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "protonvpn-app"
 spawn-at-startup "/home/saturn/GitHub/lothopaper/zig-out/bin/lothopaper"// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -370,7 +371,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Backspace hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
-    Super+D hotkey-overlay-title="Run an Application: discord" { spawn "discord"; }
+    Super+D hotkey-overlay-title="Run an Application: vesktop" { spawn "vesktop"; }
     Super+B hotkey-overlay-title="Run an Application: zen" { spawn "zen-beta"; }
     Super+L hotkey-overlay-title="Run an Application: office" { spawn "libreoffice"; }
     Super+W hotkey-overlay-title="Run an Application: gnome boxes" { spawn "gnome-boxes"; }
