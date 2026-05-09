@@ -137,7 +137,7 @@ layout {
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
-
+    
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
 
@@ -151,7 +151,7 @@ layout {
     // That is, they will show up through semitransparent windows.
     // This is because windows using client-side decorations can have an arbitrary shape.
     //
-    // If you don't like that, you should uncomment `prefer-no-csd` below.
+    // If you don't like that, you should uncomment `prefer-no-cs` below.
     // Niri will draw focus ring and border *around* windows that agree to omit their
     // client-side decorations.
     //
@@ -177,7 +177,7 @@ layout {
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#00000000"
+        //inactive-color "#00000000"
 
         // You can also use gradients.
         // They take precedence over solid colors.
@@ -232,7 +232,7 @@ layout {
         // shadow artifacts inside the CSD rounded corners.
         // This setting fixes those artifacts.
         //
-        // However, instead you may want to set prefer-no-csd and/or
+        // However, instead you may want to set prefer-no-cs and/or
         // geometry-corner-radius.
         // Then, niri will know the corner radius and
         // draw the shadow correctly, without having to draw it behind the
@@ -240,7 +240,7 @@ layout {
         // These will also remove client-side shadows if the window
         // draws any.
         //
-        // draw-behind-window true
+        //draw-behind-window true
 
         // You can change how shadows look.
         // The values below are in logical pixels and match the CSS box-shadow properties.
@@ -277,7 +277,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "protonvpn-app"
-spawn-at-startup "/home/saturn/GitHub/lothopaper/zig-out/bin/lothopaper"// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
+// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
@@ -290,7 +290,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -323,6 +323,7 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+    match is-active=false
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -377,12 +378,10 @@ binds {
     Super+W hotkey-overlay-title="Run an Application: gnome boxes" { spawn "gnome-boxes"; }
     Super+E hotkey-overlay-title="Run an Application: file manager" { spawn "nautilus"; }
     Super+S hotkey-overlay-title="Run an Application: steam" { spawn "steam"; }
-    Super+R hotkey-overlay-title="Run an Application: obs" { spawn "obs"; }
     Super+C hotkey-overlay-title="Run an Application: vscodium" { spawn "codium"; }
     Super+P hotkey-overlay-title="Run an Application: proton-vpn" { spawn "protonvpn-app"; }
     Super+M hotkey-overlay-title="Run an Application: proton-mail" { spawn "proton-mail"; }
-    Super+K hotkey-overlay-title="Run an TUI: kew" { spawn "kitty" "kew"; }    
-
+    Super+K hotkey-overlay-title="Run an Application: obs" { spawn "obs"; }
 
     // Use spawn-sh to run a shell command.
     // Do this if you need pipes, multiple commands, etc.
@@ -656,4 +655,4 @@ binds {
 }
 
 include "./noctalia.kdl"
-
+include "./overviewbg.kdl"

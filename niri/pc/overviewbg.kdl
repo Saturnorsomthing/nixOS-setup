@@ -1,0 +1,10 @@
+layer-rule {
+    match namespace="^lothopaper$"
+    place-within-backdrop true
+}
+
+layout {
+    // This ensures the workspace doesn't have a solid color blocking the shader
+    background-color "transparent"
+}
+spawn-at-startup "/home/saturn/GitHub/lothopaper/zig-out/bin/lothopaper"

@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./special_configuration.nix
+    ./pkgs.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -62,67 +63,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    nautilus
-    kew
-    neovim
-    vesktop
-    yt-dlp
-    ffmpeg
-    wineWow64Packages.full
-    localsend
-    libreoffice
-    prismlauncher
-    vscodium
-    fastfetch
-    onefetch
-    rofi
-    git
-    yazi
-    zig
-    cmake
-    lynx
-    ninja
-    python3
-    ddcutil
-    brightnessctl
-    app2unit
-    libcava
-    glibc
-    libqalculate
-    upower
-    bluez
-    bluez-tools
-    wf-recorder
-    obs-studio
-    gpu-screen-recorder
-    gnome-keyring
-    gcr
-    impression
-    galaxy-buds-client
-    sassc
-    optipng
-    gtk4
-    menulibre
-    iio-sensor-proxy
-    xournalpp
-    xwayland-satellite
-    proton-pass
-    proton-vpn
-    protonmail-desktop
-    virt-viewer
-    shared-mime-info
-    ffmpegthumbnailer
-    rot8
-    powertop
-    auto-cpufreq
-  ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-    noto-fonts
-  ];
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
