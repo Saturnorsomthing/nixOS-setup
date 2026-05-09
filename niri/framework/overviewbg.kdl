@@ -1,0 +1,17 @@
+layer-rule {
+    // This matches the awww surface and keeps it visible behind the overview
+    // If it still doesn't show, try namespace=".*" to test if it's a naming issue
+    match namespace="^awww"
+    place-within-backdrop true
+}
+
+layout {
+    // Keeps the workspace transparent so the wallpaper is visible behind it
+    background-color "transparent"
+}
+
+// 1. Start the daemon 
+spawn-at-startup "awww-daemon"
+
+// 2. Set the wallpaper image
+spawn-at-startup "sh" "-c" "sleep 0.5 && awww img /home/saturn/Pictures/Wallpapers/saturnbg.png"

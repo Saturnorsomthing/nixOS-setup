@@ -15,6 +15,10 @@
     ];
   };
 
+  # Added awww package here
+  environment.systemPackages = with pkgs; [
+    awww
+  ];
 
   services.fwupd.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];

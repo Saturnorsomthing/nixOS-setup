@@ -36,6 +36,7 @@
     obs-studio
     gpu-screen-recorder
     gnome-keyring
+    gnome-boxes
     gcr
     impression
     galaxy-buds-client
