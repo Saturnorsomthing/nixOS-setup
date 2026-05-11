@@ -75,7 +75,7 @@ window-rule {
     default-column-width {}
     match is-active=false
 }
-
+prefer-no-csd
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
