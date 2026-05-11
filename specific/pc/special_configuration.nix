@@ -10,11 +10,19 @@
     modesetting.enable = true;
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
   };
+
+  boot.kernelParams = [ 
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1" 
+    "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+  ];
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_DRM_NO_ATOMIC = "1";
   };
 
   services.hardware.openrgb.enable = true;

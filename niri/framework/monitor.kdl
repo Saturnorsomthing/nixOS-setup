@@ -1,0 +1,4 @@
+output "BOE 0x095F Unkown" {
+    mode "2256x1504@59.998"
+    scale 1
+}

@@ -1,0 +1,14 @@
+layer-rule {
+    // Keeps the wallpaper surface visible behind the overview
+    match namespace="^awww"
+    place-within-backdrop true
+}
+
+layout {
+    // Keeps the workspace transparent so the wallpaper shows through
+    background-color "transparent"
+}
+
+// Starts the wallpaper daemon and sets your image
+spawn-at-startup "awww-daemon"
+spawn-at-startup "sh" "-c" "sleep 0.5 && awww img /home/saturn/Pictures/Wallpapers/saturnbg.png"

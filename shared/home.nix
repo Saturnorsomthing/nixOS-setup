@@ -43,8 +43,8 @@
     enable = true;
     settings = {
       shell = "fish";
-      background_opacity = "0.8";
-      background_blur = 1;
+      background_opacity = "0.4";
+     # background_blur = 1;
     };
   };
 
