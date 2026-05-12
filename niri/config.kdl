@@ -71,6 +71,19 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^zen"#
+    background-effect {
+        blur true
+        xray false
+    }
+}
+window-rule {
+    match app-id=r#"^zen"#
+    draw-border-with-background false 
+    geometry-corner-radius 10
+}
+
+window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
     match is-active=false
