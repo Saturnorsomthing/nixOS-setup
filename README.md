@@ -3,3 +3,4 @@ Each laptop uses the same kernel, WM, etc.
 The only diffrences are the special configuration which holds GPU/CPU specific things.
 
 Most stuff is done in a very lazy way or flat out just very shit, so for stuff like niri + rotation and allthat id reccomend looking elsewhere.
+I do not own any of the themeing stuff.
