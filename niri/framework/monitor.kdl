@@ -1,4 +1,4 @@
-output "BOE 0x095F Unkown" {
+output "eDP-1" {
     mode "2256x1504@59.998"
     scale 1
 }
