@@ -44,7 +44,6 @@
     settings = {
       shell = "fish";
       background_opacity = "0.4";
-     # background_blur = 1;
     };
   };
 
@@ -114,9 +113,9 @@
       mkLiteral = value: { _type = "literal"; inherit value; };
     in {
       "*" = {
-        bg = mkLiteral "#151515E6";
+        bg = mkLiteral "#151515B3";
         fg = mkLiteral "#EFEFEF";
-        accent = mkLiteral "#81A1C1";
+        accent = mkLiteral "#B4BEFE";
         button = mkLiteral "#2E3440";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@fg";
@@ -178,7 +177,6 @@
     inputs.noctalia.packages."${stdenv.hostPlatform.system}".default
     gcr
     swaybg
-    rofi
     cliphist
     wl-clipboard
     wl-clip-persist

@@ -18,10 +18,6 @@
     rofi
     git
     yazi
-    zig
-    cmake
-    lynx
-    ninja
     python3
     ddcutil
     brightnessctl
@@ -34,7 +30,6 @@
     bluez-tools
     wf-recorder
     obs-studio
-    gpu-screen-recorder
     gnome-keyring
     gcr
     impression
@@ -53,8 +48,6 @@
     shared-mime-info
     ffmpegthumbnailer
     rot8
-    powertop
-    auto-cpufreq
   ];
 
   fonts.packages = with pkgs; [
