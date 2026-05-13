@@ -58,7 +58,7 @@ window-rule {
     match app-id=r#"^vesktop$"#
     background-effect {
         blur true
-        xray false
+        xray true
     }
 }
 
@@ -66,7 +66,7 @@ window-rule {
     match app-id=r#"^kitty"#
     background-effect {
         blur true
-        xray false
+        xray true
     }
 }
 layer-rule {
@@ -80,7 +80,7 @@ window-rule {
     match app-id=r#"^zen"#
     background-effect {
         blur true
-        xray false
+        xray true
     }
 }
 window-rule {
