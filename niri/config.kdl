@@ -53,22 +53,6 @@ layout {
 
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "protonvpn-app"
-
-window-rule {
-    match app-id=r#"^vesktop$"#
-    background-effect {
-        blur true
-        xray true
-    }
-}
-
-window-rule {
-    match app-id=r#"^kitty"#
-    background-effect {
-        blur true
-        xray true
-    }
-}
 layer-rule {
     match namespace="rofi"
     background-effect {
@@ -76,19 +60,6 @@ layer-rule {
         xray false
     }
 }
-window-rule {
-    match app-id=r#"^zen"#
-    background-effect {
-        blur true
-        xray true
-    }
-}
-window-rule {
-    match app-id=r#"^zen"#
-    draw-border-with-background false 
-    geometry-corner-radius 10
-}
-
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
