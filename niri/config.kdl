@@ -50,7 +50,18 @@ layout {
         color "#0007"
     }
 }
-
+window-rule {
+    match app-id=r#"^zen"#
+    background-effect {
+        blur true
+        xray true
+    }
+}
+window-rule {
+    match app-id=r#"^zen"#
+    draw-border-with-background false 
+    geometry-corner-radius 10
+}
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "protonvpn-app"
 layer-rule {
@@ -58,6 +69,13 @@ layer-rule {
     background-effect {
         blur true
         xray false
+    }
+}
+window-rule {
+    match app-id=r#"^kitty"#
+    background-effect {
+        blur true
+        xray true
     }
 }
 window-rule {
