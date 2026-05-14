@@ -4,51 +4,70 @@
   networking.hostName = "nixos";
 
   boot.initrd.kernelModules = [ "i915" "thunderbolt" ];
-  boot.kernelParams = [ "mem_sleep_default=deep" "i915.enable_psr=1" ];
+  boot.kernelParams = [ 
+    "i915.enable_psr=1" 
+    "i915.enable_fbc=1"
+    "i915.enable_guc=3" 
+    "mem_sleep_default=deep"
+    "nvme.noacpi=1"
+  ];
 
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
       vpl-gpu-rt
-      intel-compute-runtime
       libGL
     ];
   };
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    SDL_VIDEODRIVER = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
   hardware.sensor.iio.enable = true;
-  services.udev.packages = with pkgs; [ iio-sensor-proxy ];
 
-  services.fwupd.enable = true;
-  services.fprintd.enable = true;
-  services.thermald.enable = true;
-
-  systemd.user.services.niri-rotation = {
-    description = "Niri Orientation Loop";
+  systemd.user.services.rot8 = {
+    description = "Screen Rotation Daemon";
     wantedBy = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
     serviceConfig = {
-      ExecStart = pkgs.writeShellScript "niri-rotator" ''
-        ${pkgs.coreutils}/bin/stdbuf -oL ${pkgs.iio-sensor-proxy}/bin/monitor-sensor | while read -r line; do
-          case "$line" in
-            *"normal"*)    ${pkgs.niri}/bin/niri msg output eDP-1 transform normal ;;
-            *"bottom-up"*) ${pkgs.niri}/bin/niri msg output eDP-1 transform 180 ;;
-            *"left-up"*)   ${pkgs.niri}/bin/niri msg output eDP-1 transform 90 ;;
-            *"right-up"*)  ${pkgs.niri}/bin/niri msg output eDP-1 transform 270 ;;
-          esac
-        done
-      '';
+      ExecStart = "${pkgs.rot8}/bin/rot8 --sleep 800 --display eDP-1";
       Restart = "always";
-      Environment = [ "WAYLAND_DISPLAY=wayland-0" ];
     };
   };
 
+  services.logind = {
+    settings = {
+      Login = {
+        HandleLidSwitch = "suspend";
+        HandleLidSwitchExternalPower = "lock";
+      };
+    };
+  };
+
+  services.thermald.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_MAX_PERF_ON_BAT = 60;
+      PCIE_ASPM_ON_BAT = "powersupersave";
+      USB_AUTOSUSPEND = 1;
+    };
+  };
+
+  services.fwupd.enable = true;
+
   environment.systemPackages = with pkgs; [
     awww
+    iio-sensor-proxy
+    rot8
   ];
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = lib.mkForce "iHD";
-    __GLX_VENDOR_LIBRARY_NAME = lib.mkForce "mesa";
-  };
 }
