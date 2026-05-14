@@ -80,7 +80,6 @@
 
   programs.fuzzel.enable = true;
   programs.waybar.enable = true;
-
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;

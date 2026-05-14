@@ -3,6 +3,8 @@
 {
  environment.systemPackages = with pkgs; [
     nautilus
+    loupe
+    celluloid
     kew
     neovim
     vesktop
