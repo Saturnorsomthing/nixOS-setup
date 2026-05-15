@@ -43,7 +43,6 @@
     enable = true;
     settings = {
       shell = "fish";
-      background_opacity = "0.4";
     };
   };
 
@@ -78,13 +77,6 @@
     enableDefaultConfig = false;
   };
 
-  programs.fuzzel.enable = true;
-  programs.waybar.enable = true;
-  programs.swaylock = {
-    enable = true;
-    package = pkgs.swaylock-effects;
-  };
-
   systemd.user.services.rot8 = {
     Unit.Description = "Screen rotation daemon";
     Service = {
@@ -112,7 +104,7 @@
       mkLiteral = value: { _type = "literal"; inherit value; };
     in {
       "*" = {
-        bg = mkLiteral "#151515B3";
+        bg = mkLiteral "#151515";
         fg = mkLiteral "#EFEFEF";
         accent = mkLiteral "#B4BEFE";
         button = mkLiteral "#2E3440";

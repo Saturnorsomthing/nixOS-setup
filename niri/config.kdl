@@ -50,49 +50,22 @@ layout {
         color "#0007"
     }
 }
-window-rule {
-    match app-id=r#"^zen"#
-    background-effect {
-        blur true
-        xray true
-    }
-}
-window-rule {
-    match app-id=r#"^zen"#
-    draw-border-with-background false 
-    geometry-corner-radius 10
-}
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "protonvpn-app"
-layer-rule {
-    match namespace="rofi"
-    background-effect {
-        blur true
-        xray false
-    }
-}
-window-rule {
-    match app-id=r#"^kitty"#
-    background-effect {
-        blur true
-        xray true
-    }
-}
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
     match is-active=false
 }
-prefer-no-csd
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
+window-rule { 
+    geometry-corner-radius 12 
+    clip-to-geometry true 
+} 
 
 binds {
     Mod+Shift+M { show-hotkey-overlay; }
