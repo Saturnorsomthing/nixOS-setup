@@ -249,5 +249,5 @@ binds {
 }
 
 include "./monitor.kdl"
-include "./display.kdl"
-include "./noctalia.kdl"
+include "./bghandler.kdl"
+include "./colors.kdl"
