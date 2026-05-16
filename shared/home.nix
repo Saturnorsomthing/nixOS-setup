@@ -77,15 +77,6 @@
     enableDefaultConfig = false;
   };
 
-  systemd.user.services.rot8 = {
-    Unit.Description = "Screen rotation daemon";
-    Service = {
-      ExecStart = "${pkgs.rot8}/bin/rot8";
-      Restart = "always";
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
-
   services.swaync.enable = true;
 
   programs.rofi = {
