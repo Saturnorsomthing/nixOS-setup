@@ -77,8 +77,6 @@
     enableDefaultConfig = false;
   };
 
-  services.swaync.enable = true;
-
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
@@ -95,48 +93,93 @@
       mkLiteral = value: { _type = "literal"; inherit value; };
     in {
       "*" = {
-        bg = mkLiteral "#151515";
-        fg = mkLiteral "#EFEFEF";
-        accent = mkLiteral "#B4BEFE";
-        button = mkLiteral "#2E3440";
+        bg       = mkLiteral "#151515";
+        fg       = mkLiteral "#EFEFEF";
+        accent   = mkLiteral "#B4BEFE";
+        button   = mkLiteral "#2E3440";
+        hdr      = mkLiteral "#1a1a2e";
+        dim      = mkLiteral "#6272a4";
+        hdrbdr   = mkLiteral "#2a2a3e";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@fg";
-        font = "DejaVuSansMono 11";
+        font = "FiraCode Nerd Font 11";
       };
       "window" = {
-        width = mkLiteral "600px";
+        width = mkLiteral "620px";
         background-color = mkLiteral "@bg";
         border = mkLiteral "2px";
         border-color = mkLiteral "@accent";
         border-radius = mkLiteral "12px";
       };
       "mainbox" = {
-        padding = mkLiteral "12px";
-        children = mkLiteral "[inputbar, listview]";
+        padding = mkLiteral "0px";
+        spacing = mkLiteral "0px";
+        children = mkLiteral "[header, inputbar, separator, listview, footer]";
+      };
+      "header" = {
+        background-color = mkLiteral "@hdr";
+        padding = mkLiteral "8px 14px";
+        border = mkLiteral "0 0 1px 0";
+        border-color = mkLiteral "@hdrbdr";
+        border-radius = mkLiteral "10px 10px 0 0";
+        expand = false;
+        orientation = mkLiteral "horizontal";
+        children = mkLiteral "[textbox-left, textbox-right]";
+      };
+      "textbox-left" = {
+        expand = true;
+        str = "NixOS ${lib.trivial.release} (${lib.trivial.codeName}) ${pkgs.stdenv.hostPlatform.uname.processor}"; # me when i overcomplicate things :troll:
+        text-color = mkLiteral "@accent";
+        background-color = mkLiteral "transparent";
+        font = "FiraCode Nerd Font 11";
+        vertical-align = mkLiteral "0.5";
+        horizontal-align = mkLiteral "0.0";
+      };
+      "textbox-right" = {
+        expand = false;
+        str = "ROFI";
+        text-color = mkLiteral "@dim";
+        background-color = mkLiteral "transparent";
+        font = "FiraCode Nerd Font 11";
+        vertical-align = mkLiteral "0.5";
+        horizontal-align = mkLiteral "1.0";
       };
       "inputbar" = {
         background-color = mkLiteral "@button";
         border-radius = mkLiteral "8px";
-        padding = mkLiteral "8px";
-        margin = mkLiteral "0 0 10px 0";
+        padding = mkLiteral "8px 12px";
+        margin = mkLiteral "10px 12px 0";
+        spacing = mkLiteral "0px";
         children = mkLiteral "[prompt, entry]";
+        border = mkLiteral "1px";
+        border-color = mkLiteral "#3a3f4b";
       };
       "prompt" = {
-        padding = mkLiteral "0 10px 0 5px";
+        padding = mkLiteral "0 10px 0 2px";
         text-color = mkLiteral "@accent";
       };
+      "entry" = {
+        text-color = mkLiteral "@fg";
+      };
+      "separator" = {
+        background-color = mkLiteral "@button";
+        height = mkLiteral "1px";
+        margin = mkLiteral "6px 12px 4px";
+        expand = false;
+      };
       "listview" = {
-        lines = 12;
+        lines = 10;
         columns = 1;
         fixed-height = false;
         scrollbar = false;
-        spacing = mkLiteral "4px";
+        spacing = mkLiteral "2px";
         cycle = true;
         dynamic = true;
         layout = mkLiteral "vertical";
+        padding = mkLiteral "4px 12px 6px";
       };
       "element" = {
-        padding = mkLiteral "8px";
+        padding = mkLiteral "7px 10px";
         border-radius = mkLiteral "6px";
         children = mkLiteral "[element-icon, element-text]";
       };
@@ -150,6 +193,24 @@
       };
       "element-text" = {
         vertical-align = mkLiteral "0.5";
+      };
+      "footer" = {
+        background-color = mkLiteral "transparent";
+        padding = mkLiteral "7px 14px";
+        spacing = mkLiteral "0px";
+        expand = false;
+        border = mkLiteral "1px 0 0 0";
+        border-color = mkLiteral "@button";
+        children = mkLiteral "[textbox-footer]";
+      };
+      "textbox-footer" = {
+        expand = true;
+        str = "↑↓ navigate    ↵ launch    esc close";
+        text-color = mkLiteral "@dim";
+        background-color = mkLiteral "transparent";
+        font = "FiraCode Nerd Font 10";
+        vertical-align = mkLiteral "0.5";
+        horizontal-align = mkLiteral "0.0";
       };
     };
   };
