@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
- environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     nautilus
     loupe
     celluloid
@@ -14,13 +14,21 @@
     localsend
     libreoffice
     prismlauncher
-    vscodium
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions; [
+        ms-python.python
+        ms-python.debugpy
+      ];
+    })
     fastfetch
     onefetch
     rofi
     git
     yazi
-    python3
+    (python3.withPackages (ps: with ps; [
+      debugpy
+    ]))
     ddcutil
     brightnessctl
     app2unit
