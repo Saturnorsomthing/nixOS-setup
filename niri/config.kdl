@@ -218,7 +218,6 @@ binds {
     Super+Ctrl+S { screenshot-window; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    Mod+Shift+P { power-off-monitors; }
 }
 
 include "./monitor.kdl"
